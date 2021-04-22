@@ -65,12 +65,14 @@ class CoreBinaryPlugin : Plugin<Project> {
             implementations().forEach { dependency ->
                 add("implementation", dependency)
             }
+            annotationProcessors().forEach { annotationProcessor ->
+                add("kapt", annotationProcessor)
+            }
             testImplementation().forEach { unitTestDependency ->
                 add("testImplementation", unitTestDependency)
             }
             androidTestImplementation().forEach { androidTestDependency ->
                 add("androidTestImplementation", androidTestDependency)
-
             }
         }
     }
@@ -95,7 +97,37 @@ class CoreBinaryPlugin : Plugin<Project> {
         coreDependencyList.add(Libraries.materialComponents)
         coreDependencyList.add(Libraries.navHostFragment)
         coreDependencyList.add(Libraries.navHostUi)
+        coreDependencyList.add(Libraries.lifecyleCommon)
+        coreDependencyList.add(Libraries.lifecyleLiveData)
+        coreDependencyList.add(Libraries.lifecycleViewModel)
+        coreDependencyList.add(Libraries.lifecycleRuntime)
+        coreDependencyList.add(Libraries.lifecycleExtension)
+        coreDependencyList.add(Libraries.reactiveStreams)
+        coreDependencyList.add(Libraries.roomRuntime)
+        coreDependencyList.add(Libraries.kotlinExtRoom)
+        coreDependencyList.add(Libraries.pagingRuntime)
+        coreDependencyList.add(Libraries.workManagerRuntime)
+        coreDependencyList.add(Libraries.koinCore)
+        coreDependencyList.add(Libraries.koinAndroid)
+        coreDependencyList.add(Libraries.koinViewModel)
+        coreDependencyList.add(Libraries.coroutinesCore)
+        coreDependencyList.add(Libraries.coroutinesAndroid)
+        coreDependencyList.add(Libraries.coroutinesAdapter)
+        coreDependencyList.add(Libraries.moshiKotlinSupport)
+        coreDependencyList.add(Libraries.moshiCodeGenerator)
+        coreDependencyList.add(Libraries.moshiConverterFactory)
+        coreDependencyList.add(Libraries.retrofit)
+        coreDependencyList.add(Libraries.okhttp)
+        coreDependencyList.add(Libraries.okhttpInterceptor)
+        coreDependencyList.add(Libraries.coil)
         return coreDependencyList.distinct()
+    }
+
+    private fun annotationProcessors(): List<String> {
+        val annotationProcessorList = mutableListOf<String>()
+        annotationProcessorList.add(Libraries.lifecyleCommon)
+        annotationProcessorList.add(Libraries.roomCompiler)
+        return annotationProcessorList.distinct()
     }
 
     private fun testImplementation(): List<String> {
