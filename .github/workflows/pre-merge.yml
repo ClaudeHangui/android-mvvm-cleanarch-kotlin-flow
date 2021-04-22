@@ -1,0 +1,63 @@
+# Github actions to run detekt, klint & jacoco on all modules of the project, then build and test the artifacts
+
+name: Pre Merge Checks
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: '.*'
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  gradle:
+    strategy:
+      matrix:
+        os: [macos-latest]
+    # The type of runner that the job will run on
+    runs-on: ${{ matrix.os }}
+    
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout Repository
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        uses: actions/checkout@v2
+
+      # Gradle wrapper validation
+      - name: Verify the wrapper's checksum
+        uses: gradle/wrapper-validation-action@v1.0.3
+
+      # Cache gradle files
+      - name: Cache Gradle Files
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches/
+            ~/.gradle/wrapper/
+          key: cache-gradle
+
+      # Code Checking
+      - name: Check Kotlin code style
+        run: ./gradlew ktlintCheck --continue   #Continues task execution after a task failure.
+
+      # Code Formatting
+      - name: Fix Kotlin code style deviations
+        run: ./gradlew ktlintFormat --continue   #Continues task execution after a task failure.
+
+      # (Basic) Code analysis
+      - name: Static code analysis
+        run: ./gradlew detekt --continue   #Continues task execution after a task failure.
+
+      # End Gradle tasks
+      - name: Build artifacts and publish to local maven
+        run: ./gradlew build check publishToMavenLocal --continue
+
+      # Stop gradle
+      - name: Stop Gradle
+        run: ./gradlew --stop
