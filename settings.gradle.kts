@@ -1,2 +1,2 @@
 include(":app")
-rootProject.name = "android-project-setup"
+rootProject.name = "android-mvvm-cleanarch-kotlin-flow"

@@ -6,7 +6,7 @@ object Versions {
     const val targetSdk = 30
     const val compileSdk = 30
     const val buildTools = "30.0.2"
-    const val applicationId = "com.changui.android_project_setup"
+    const val applicationId = "com.changui.android_mvvm_cleanarch_kotlin_flow"
     const val applicationVersionCode = 1
     const val applicationVersionName = "1.0"
 

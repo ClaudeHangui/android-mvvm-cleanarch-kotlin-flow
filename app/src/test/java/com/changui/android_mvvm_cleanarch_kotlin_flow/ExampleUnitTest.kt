@@ -1,4 +1,4 @@
-package com.changui.android_project_setup
+package com.changui.android_mvvm_cleanarch_kotlin_flow
 
 import org.junit.Test
 
