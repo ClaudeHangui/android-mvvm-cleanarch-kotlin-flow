@@ -27,7 +27,7 @@ object Versions {
     const val retrofit = "2.9.0"
     const val okhttp = "4.9.0"
     const val coil = "1.1.1"
-    const val koin = "1.2.2"
+    const val koin = "2.2.2"
     const val coroutines = "1.4.2"
     const val coroutinesAdapter = "0.9.2"
 
