@@ -16,6 +16,7 @@
 # generated files
 bin/
 gen/
+app/schemas/*/*.json
 
 # Ignore gradle files
 .gradle

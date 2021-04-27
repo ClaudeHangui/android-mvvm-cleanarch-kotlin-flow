@@ -5,6 +5,7 @@ import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 class CoreBinaryPlugin : Plugin<Project> {
 
@@ -25,8 +26,17 @@ class CoreBinaryPlugin : Plugin<Project> {
                 targetSdkVersion(Versions.targetSdk)
                 versionCode(Versions.applicationVersionCode)
                 versionName(Versions.applicationVersionName)
+                multiDexEnabled = true
+                vectorDrawables.useSupportLibrary = true
+                resConfigs("en", "fr")
+                javaCompileOptions {
+                    annotationProcessorOptions {
+                        arguments += mapOf("room.schemaLocation" to "$projectDir/schemas", "room.incremental" to "true") as MutableMap<String, String>
+                    }
+                }
                 testInstrumentationRunner("androidx.test.runner.AndroidJUnitRunner")
             }
+            buildFeatures.viewBinding = true
             lintOptions {
                 isCheckReleaseBuilds = false
                 isAbortOnError = true
@@ -49,6 +59,11 @@ class CoreBinaryPlugin : Plugin<Project> {
             compileOptions {
                 sourceCompatibility = JavaVersion.VERSION_1_8
                 targetCompatibility = JavaVersion.VERSION_1_8
+            }
+            tasks.withType(KotlinCompile::class.java).all {
+                kotlinOptions {
+                    jvmTarget = "1.8"
+                }
             }
             testOptions{
                 animationsDisabled = true
@@ -95,6 +110,7 @@ class CoreBinaryPlugin : Plugin<Project> {
         coreDependencyList.add(Libraries.kotlinStdLib)
         coreDependencyList.add(Libraries.constraintLayout)
         coreDependencyList.add(Libraries.materialComponents)
+        coreDependencyList.add(Libraries.multiDexApplication)
         coreDependencyList.add(Libraries.navHostFragment)
         coreDependencyList.add(Libraries.navHostUi)
         coreDependencyList.add(Libraries.lifecyleCommon)
@@ -104,6 +120,7 @@ class CoreBinaryPlugin : Plugin<Project> {
         coreDependencyList.add(Libraries.lifecycleExtension)
         coreDependencyList.add(Libraries.reactiveStreams)
         coreDependencyList.add(Libraries.roomRuntime)
+        coreDependencyList.add(Libraries.roomKotlinExtension)
         coreDependencyList.add(Libraries.kotlinExtRoom)
         coreDependencyList.add(Libraries.pagingRuntime)
         coreDependencyList.add(Libraries.workManagerRuntime)
@@ -120,6 +137,7 @@ class CoreBinaryPlugin : Plugin<Project> {
         coreDependencyList.add(Libraries.okhttp)
         coreDependencyList.add(Libraries.okhttpInterceptor)
         coreDependencyList.add(Libraries.coil)
+        coreDependencyList.add(Libraries.arrow)
         return coreDependencyList.distinct()
     }
 

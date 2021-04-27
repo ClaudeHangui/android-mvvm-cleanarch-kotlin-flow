@@ -3,16 +3,17 @@
     package="com.changui.android_mvvm_cleanarch_kotlin_flow">
 
     <application
+        android:name=".StackOverFlowApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Androidprojectsetup">
+        android:theme="@style/Theme.Androidmvvmcleanarchkotlinflow">
         <activity
-            android:name="com.changui.android_mvvm_cleanarch_kotlin_flow.MainActivity"
+            android:name="com.changui.android_mvvm_cleanarch_kotlin_flow.presentation.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Androidprojectsetup.NoActionBar">
+            android:theme="@style/Theme.Androidmvvmcleanarchkotlinflow.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

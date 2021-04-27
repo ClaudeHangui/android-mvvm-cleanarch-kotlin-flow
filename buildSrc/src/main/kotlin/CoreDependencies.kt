@@ -1,7 +1,7 @@
 object Versions {
 
     // Project configurations
-    const val kotlinVersion = "1.3.61"
+    const val kotlinVersion = "1.3.72"
     const val minSdk = 16
     const val targetSdk = 30
     const val compileSdk = 30
@@ -9,7 +9,7 @@ object Versions {
     const val applicationId = "com.changui.android_mvvm_cleanarch_kotlin_flow"
     const val applicationVersionCode = 1
     const val applicationVersionName = "1.0"
-
+    const val multiDexApp = "2.0.1"
     // Android core libraries
     const val appCompat = "1.2.0"
     const val materialComponents = "1.3.0"
@@ -30,7 +30,7 @@ object Versions {
     const val koin = "2.2.2"
     const val coroutines = "1.4.2"
     const val coroutinesAdapter = "0.9.2"
-
+    const val arrow = "0.13.1"
     // Code formatter
     const val ktlint = "9.4.1"
     // Gradle version update
@@ -60,6 +60,7 @@ object Libraries {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val materialComponents = "com.google.android.material:material:${Versions.materialComponents}"
+    const val multiDexApplication = "androidx.multidex:multidex:${Versions.multiDexApp}"
     const val navHostFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navHostFragment}"
     const val navHostUi = "androidx.navigation:navigation-ui:${Versions.navHostFragment}"
     const val lifecyleCommon = "androidx.lifecycle:lifecycle-common-java8:${Versions.lifeCycle}"
@@ -70,15 +71,16 @@ object Libraries {
     const val reactiveStreams = "androidx.lifecycle:lifecycle-reactivestreams-ktx:${Versions.lifeCycle}"
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+    const val roomKotlinExtension = "androidx.room:room-ktx:${Versions.room}"
     const val kotlinExtRoom = "androidx.room:room-ktx:${Versions.room}"
     const val pagingRuntime = "androidx.paging:paging-runtime:${Versions.paging}"
     const val workManagerRuntime = "androidx.work:work-runtime-ktx:${Versions.workManager}"
     const val koinCore = "org.koin:koin-core:${Versions.koin}"
     const val koinAndroid = "org.koin:koin-android:${Versions.koin}"
     const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koin}"
-    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core${Versions.coroutines}"
-    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android${Versions.coroutines}"
-    const val coroutinesAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter${Versions.coroutinesAdapter}"
+    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    const val coroutinesAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.coroutinesAdapter}"
     const val moshiKotlinSupport = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     const val moshiCodeGenerator = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
     const val moshiConverterFactory = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
@@ -86,7 +88,7 @@ object Libraries {
     const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
     const val okhttpInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
     const val coil = "io.coil-kt:coil:${Versions.coil}"
-
+    const val arrow = "io.arrow-kt:arrow-fx-coroutines:${Versions.arrow}"
     // Test Libraries
     const val unitTestJunit = "junit:junit:${Versions.unitTestJunit}"
     const val integrationTestJunit = "androidx.test.ext:junit:${Versions.integrationTestJunit}"

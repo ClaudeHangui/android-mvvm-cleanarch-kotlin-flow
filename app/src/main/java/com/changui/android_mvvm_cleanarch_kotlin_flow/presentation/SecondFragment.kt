@@ -1,4 +1,4 @@
-package com.changui.android_mvvm_cleanarch_kotlin_flow
+package com.changui.android_mvvm_cleanarch_kotlin_flow.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import com.changui.android_mvvm_cleanarch_kotlin_flow.R
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.

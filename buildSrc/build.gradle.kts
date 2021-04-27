@@ -27,7 +27,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.31")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31")
     }
 }
 
@@ -39,9 +39,9 @@ compileKotlin.kotlinOptions {
 
 dependencies {
     implementation("com.android.tools.build:gradle:4.1.2")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.31")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31")
     implementation("com.android.tools.build:gradle-api:4.1.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.61")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.72")
     implementation(kotlin("script-runtime"))
     implementation("org.jacoco:org.jacoco.core:0.8.5")
 }

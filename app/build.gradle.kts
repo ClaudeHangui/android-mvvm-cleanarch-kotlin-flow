@@ -4,5 +4,6 @@ plugins {
     `kotlin-kapt`
     id("core-binary-plugin")
     id("maven-publish")
+    id("kotlin-parcelize")
 }
 
